@@ -16,3 +16,6 @@ Pixel Pals is a digital companion game where you can customize your own virtual 
 * **Web frameworks** allow modularization of pages into components and routing between them
 * **WebSocket** allows for chatting with friends
 * **PWA** allows for mobile porting of the site
+* Players can create an account, customize a companion, and make progress by unlocking new features
+* Players can also add friends via account info and message them, as well as see others' progress
+* Widgets will pull from separate API's to provide information IRL while playing the game
