@@ -19,3 +19,5 @@ Pixel Pals is a digital companion game where you can customize your own virtual 
 * Players can create an account, customize a companion, and make progress by unlocking new features
 * Players can also add friends via account info and message them, as well as see others' progress
 * Widgets will pull from separate API's to provide information IRL while playing the game
+## AWS
+I learned how to create an AWS account, as well as a server instance, and how to assign it an elastic IP.
