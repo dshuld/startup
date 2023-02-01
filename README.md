@@ -23,3 +23,5 @@ Pixel Pals is a digital companion game where you can customize your own virtual 
 I learned how to create an AWS account, as well as a server instance, and how to assign it an elastic IP. (http://3.22.43.108)
 ## Route 53 Domain
 This is the domain I registered: http://pixelpals.click
+## HTTPS, TLS, and certificates
+By getting a certificate, we are able to secure the connection.
