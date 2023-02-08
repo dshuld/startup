@@ -25,3 +25,5 @@ I learned how to create an AWS account, as well as a server instance, and how to
 This is the domain I registered: http://pixelpals.click
 ## HTTPS, TLS, and certificates
 By getting a certificate, we are able to secure the connection.
+## Simon HTML
+I built the framework for the Simon game webpages, and now they need to be styled and made interactive. https://simon.pixelpals.click
