@@ -28,3 +28,5 @@ By getting a certificate, we are able to secure the connection.
 ## Simon HTML
 I built the framework for the Simon game webpages, and now they need to be styled and made interactive. https://simon.pixelpals.click
 I learned about how to format elements in placing them on separate or similar lines, and I also learned about being more consistent in my GitHub commits.
+## CSS Practice
+Animations are nice to add small effects, but there are probably better ways to add complex effects using JavaScript
