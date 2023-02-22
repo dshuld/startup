@@ -30,3 +30,5 @@ I built the framework for the Simon game webpages, and now they need to be style
 I learned about how to format elements in placing them on separate or similar lines, and I also learned about being more consistent in my GitHub commits.
 ## CSS Practice
 Animations are nice to add small effects, but there are probably better ways to add complex effects using JavaScript
+## Simon CSS
+Positioning was probably the most difficult part of the CSS, so it would be worth taking the time to practice with it. Otherwise, I learned about nesting divs in order to apply the properties I want with certain selectors. I also learned more about implemetning bootstrap selectors.
