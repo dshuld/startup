@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 calc(100vh - 30px);
+}
+
+main .row {
+    justify-content: center;
+    min-height: 100%;
+
+}
+
+main .column {
+    background-color: gray;
+    border: thin solid black;
+}
+
+main .column:nth-child(2) {
+    background-color: darkgray;
+    border: thin solid black;
+}
+
+footer {
+    flex: 0 30px;
+    border: thin solid black;
+}
+
+footer a {
+    float: right;
+}
