@@ -32,3 +32,5 @@ I learned about how to format elements in placing them on separate or similar li
 Animations are nice to add small effects, but there are probably better ways to add complex effects using JavaScript
 ## Simon CSS
 Positioning was probably the most difficult part of the CSS, so it would be worth taking the time to practice with it. Otherwise, I learned about nesting divs in order to apply the properties I want with certain selectors. I also learned more about implemetning bootstrap selectors.
+## Startup HTML and CSS
+It was very cool to build my site based on my design from scratch, it helped me learn a lot more about the importance of planning out a webstie design, becasue it allows for a much smarter layout and structure of the HTML document to make the styling more simple.
