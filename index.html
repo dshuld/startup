@@ -24,7 +24,7 @@
                     <div class="widget"></div>
                     <div class="widget"></div>
                     <div class="widget"></div>
-                    <button class="add-widget">+ Add Widget</button>
+                    <button class="btn add-widget">+ Add Widget</button>
                 </div>
 
                 <div id="main-column" class="col-md-5 mx-2 my-1 column">
@@ -34,28 +34,49 @@
                 </div>
 
                 <div id="right-column" class="col-md-3 my-1 column">
-                    <div id="sign-out">
-                        <button class="btn btn-dark">Logout</button>
+                    <div class="sign-out-and-friends">
+                        <div id="sign-out">
+                            <button class="btn btn-dark">Logout</button>
+                        </div>
+                        <div class="friends-list text-dark">
+                            <div class="friend">
+                                <img src="friend.png"/>
+                                <p>Friend #1</p>
+                            </div>
+                            <div class="friend">
+                                <img src="friend.png"/>
+                                <p>Friend #2</p>
+                            </div>
+                            <div class="friend">
+                                <img src="friend.png"/>
+                                <p>Friend #3</p>
+                            </div>
+                        </div>
+                        <button class="btn add-friend">+ Add Friend</button>
                     </div>
-                    <div class="friends-list">
-                        <div class="friend">
-                            <img src="friend.png"/>
-                            <p>Friend #1</p>
-                        </div>
-                        <div class="friend">
-                            <img src="friend.png"/>
-                            <p>Friend #2</p>
-                        </div>
-                        <div class="friend">
-                            <img src="friend.png"/>
-                            <p>Friend #3</p>
-                        </div>
-                    </div>
-                    <button class="add-friend">
-                        <p>+ Add Friend</p>
-                    </button>
                     <div class="chatbox">
-
+                        <div class="messages">
+                            <div class="message-items">
+                                <p>Message</p>
+                                <p>Message</p>
+                            </div>
+                        </div>
+                        <div class="composer">
+                            <form>
+                                <div class="top">
+                                    <label>Recipient:&nbsp;</label>
+                                    <select>
+                                        <option>Friend #1</option>
+                                        <option>Friend #2</option>
+                                        <option>Friend #3</option>
+                                    </select>
+                                </div>
+                                <div class="bottom">
+                                    <input type="text">
+                                    <button>Send</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

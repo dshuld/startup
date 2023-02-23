@@ -74,6 +74,15 @@ footer a {
     border: none;
 }
 
+#right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-out-and-friends {
+    flex: 1;
+}
+
 #sign-out {
     margin-top: 1em;
     width: 100%;
@@ -119,5 +128,63 @@ footer a {
 
 .chatbox {
     background-color: #999;
+    flex: 0 150px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    border: thin solid black;
+}
 
+.chatbox form * {
+    margin: 1px;
+}
+
+.messages {
+    flex: 1;
+    padding: 5px;
+}
+
+.message-items p {
+    margin: 0;
+}
+
+.composer {
+    flex: 0;
+}
+
+.composer .top {
+    border-top: thin solid black;
+    margin-bottom: 2px;
+}
+
+.composer .top * {
+    margin: 0;
+}
+
+.composer label {
+    width: 70%;
+    text-align: right;
+}
+
+.composer select {
+    float: right;
+    width: 30%;
+}
+
+.composer form {
+    padding: 0px;
+}
+
+.composer input {
+    width: 70%;
+    height: 30px;
+    margin: 0px;
+}
+
+.composer button {
+    width: 30%;
+    height: 30px;
+    margin: 0px;
+    float: right;
+    border: thin solid;
 }
