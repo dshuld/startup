@@ -21,15 +21,42 @@
         <main class="container-fluid">
             <div class="row">
                 <div id="left-column" class="col-md-3 my-1 column">
-                    Left
+                    <div class="widget"></div>
+                    <div class="widget"></div>
+                    <div class="widget"></div>
+                    <button class="add-widget">+ Add Widget</button>
                 </div>
 
                 <div id="main-column" class="col-md-5 mx-2 my-1 column">
-                    Mid
+                    <div class="canvas-container">
+                        <canvas id="game-canvas"></canvas>
+                    </div>
                 </div>
 
                 <div id="right-column" class="col-md-3 my-1 column">
-                    Right
+                    <div id="sign-out">
+                        <button class="btn btn-dark">Logout</button>
+                    </div>
+                    <div class="friends-list">
+                        <div class="friend">
+                            <img src="friend.png"/>
+                            <p>Friend #1</p>
+                        </div>
+                        <div class="friend">
+                            <img src="friend.png"/>
+                            <p>Friend #2</p>
+                        </div>
+                        <div class="friend">
+                            <img src="friend.png"/>
+                            <p>Friend #3</p>
+                        </div>
+                    </div>
+                    <button class="add-friend">
+                        <p>+ Add Friend</p>
+                    </button>
+                    <div class="chatbox">
+
+                    </div>
                 </div>
             </div>
         </main>
