@@ -139,45 +139,45 @@ function clickForest() {
 
 function clickMountain() {
     if (locationsOwned.indexOf('mountain') > -1) {
-      pixelPal.changeLocation('mountain');
+        pixelPal.changeLocation('mountain');
     } else if (pixelPal.xp >= mountainBtnXp) {
-      pixelPal.xp -= mountainBtnXp;
-      locationsOwned.push('mountain');
-      pixelPal.changeLocation('mountain');
-      mountainBtn.textContent = 'Mountain';
-      checkButtons();
-      pixelPal.levelUp();
+        pixelPal.xp -= mountainBtnXp;
+        locationsOwned.push('mountain');
+        pixelPal.changeLocation('mountain');
+        mountainBtn.textContent = 'Mountain';
+        checkButtons();
+        pixelPal.levelUp();
     }
     drawCanvas();
-  }
-  
-  function clickBeach() {
+}
+
+function clickBeach() {
     if (locationsOwned.indexOf('beach') > -1) {
-      pixelPal.changeLocation('beach');
+        pixelPal.changeLocation('beach');
     } else if (pixelPal.xp >= beachBtnXp) {
-      pixelPal.xp -= beachBtnXp;
-      locationsOwned.push('beach');
-      pixelPal.changeLocation('beach');
-      beachBtn.textContent = 'Beach';
-      checkButtons();
-      pixelPal.levelUp();
+        pixelPal.xp -= beachBtnXp;
+        locationsOwned.push('beach');
+        pixelPal.changeLocation('beach');
+        beachBtn.textContent = 'Beach';
+        checkButtons();
+        pixelPal.levelUp();
     }
     drawCanvas();
-  }
-  
-  function clickCity() {
+}
+
+function clickCity() {
     if (locationsOwned.indexOf('city') > -1) {
-      pixelPal.changeLocation('city');
+        pixelPal.changeLocation('city');
     } else if (pixelPal.xp >= cityBtnXp) {
-      pixelPal.xp -= cityBtnXp;
-      locationsOwned.push('city');
-      pixelPal.changeLocation('city');
-      cityBtn.textContent = 'City';
-      checkButtons();
-      pixelPal.levelUp();
+        pixelPal.xp -= cityBtnXp;
+        locationsOwned.push('city');
+        pixelPal.changeLocation('city');
+        cityBtn.textContent = 'City';
+        checkButtons();
+        pixelPal.levelUp();
     }
     drawCanvas();
-  }
+}
   
 
 function handleClick() {
