@@ -31,6 +31,23 @@
                     <div class="canvas-container">
                         <canvas id="game-canvas"></canvas>
                     </div>
+                    <div class="controls">
+                        <div class="color-controls sub-control">
+                            <div>Colors</div>
+                            <button id="black-button" onclick="clickBlack()">Black</button>
+                            <button disabled id="blue-button" onclick="clickBlue()">100xp</button>
+                            <button disabled id="green-button" onclick="clickGreen()">500xp</button>
+                            <button disabled id="orange-button" onclick="clickOrange()">1000xp</button>
+                            <button disabled id="red-button" onclick="clickRed()">2000xp</button>
+                        </div>
+                        <div class="location-controls sub-control">
+                            <div>Location</div>
+                            <button id="forest-button" onclick="clickForest()">Forest</button>
+                            <button disabled id="mountain-button" onclick="clickMountain()">1000xp</button>
+                            <button disabled id="beach-button" onclick="clickBeach()">2000xp</button>
+                            <button disabled id="city-button" onclick="clickCity()">3000xp</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="right-column" class="col-md-3 my-1 column">
@@ -87,4 +104,5 @@
             <a href="https://github.com/dshuld/startup">Github</a>
         </footer>
     </body>
+    <script src="game.js"></script>
 </html>
