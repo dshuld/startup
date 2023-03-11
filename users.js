@@ -13,7 +13,6 @@ function registerUser(username, password) {
             localStorage.setItem('users', JSON.stringify(users));
             login(username, password);
             window.location.href = 'index.html';
-            checkLogin();
             return true;
         }
         else {
@@ -47,7 +46,7 @@ function login(username, password) {
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        checkLogin();
+        window.location.href = 'index.html';
         return true;
     } else {
         return false;
