@@ -206,13 +206,13 @@ function drawCanvas() {
     //set background
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
     var bg = new Image();
-    bg.src = 'res/' + pixelPal.location + '.png';
+    bg.src = './res/' + pixelPal.location + '.png';
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
     // draw the pixel pal
     ctx.fillStyle = pixelPal.color;
     var img = new Image();
-    img.src = 'res/' + 'small_dog_' + pixelPal.color + '.png';
+    img.src = './res/' + 'small_dog_' + pixelPal.color + '.png';
     ctx.drawImage(img, percentToPixels(40), percentToPixels(40), percentToPixels(20), percentToPixels(20));
     
     // draw the xp and level
