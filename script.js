@@ -2,6 +2,10 @@ if (!localStorage.getItem('friends')) {
     localStorage.setItem('friends', JSON.stringify([]));
 }
 
+if (!localStorage.getItem('messages')) {
+    localStorage.setItem('messages', JSON.stringify([]));
+}
+
 function showPopup() {
     document.getElementById("popup-box").style.display = "block";
 }
@@ -16,7 +20,13 @@ var friendsList = []
 function addFriend(username) {
     var friendName = document.getElementById("username-input").value;
     friendsList.push(friendName);
-    userFriends.push({username, friendsList});
+    var found = userFriends.find(u => u.username === username);
+    if(found) {
+        found = {username, friendsList};
+    }
+    else {
+        userFriends.push({username, friendsList});
+    }
     localStorage.setItem('friends', JSON.stringify(userFriends));
     hidePopup();
     renderFriends();
@@ -37,6 +47,7 @@ function renderFriends() {
         `;
         friendsListElement.appendChild(newFriendElement);
     });
+    renderAddressBook();
 }
 
 function loadFriendData(username) {
@@ -70,4 +81,40 @@ function renderWidget(data) {
     widget.innerHTML = `
     <div>${data}</div>
     `;
+}
+
+function renderAddressBook() {
+    var toRemove = document.querySelectorAll("#addressee-selector *")
+    toRemove.forEach(element => {
+        element.remove();
+    });
+    const selector = document.getElementById('addressee-selector');
+    friendsList.forEach(friend => {
+        var newAddressee = document.createElement("option");
+        newAddressee.innerHTML = friend;
+        selector.appendChild(newAddressee);
+    });
+}
+
+function sendMessage(username) {
+    const selector = document.getElementById('addressee-selector');
+    const msg = document.getElementById('message');
+    var messages = JSON.parse(localStorage.getItem('messages'));
+    messages.push({from:username, to:selector.value, message:msg.value});
+    localStorage.setItem('messages', JSON.stringify(messages));
+}
+
+function displayMessages(username) {
+    var toRemove = document.querySelectorAll("#message-items *")
+    toRemove.forEach(element => {
+        element.remove();
+    });
+    const inbox = document.getElementById('message-items');
+    var messageList = JSON.parse(localStorage.getItem('messages')).filter(msg => msg.to === username);
+    console.log(messageList);
+    messageList.forEach(msg => {
+        var newMsg = document.createElement("p");
+        newMsg.innerHTML = msg.from + ": " + msg.message;
+        inbox.appendChild(newMsg);
+    });
 }

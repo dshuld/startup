@@ -87,7 +87,7 @@
                     </div>
                     <div class="chatbox">
                         <div class="messages">
-                            <div class="message-items">
+                            <div id="message-items">
                                 <!-- <p>Message</p>
                                 <p>Message</p> -->
                             </div>
@@ -96,15 +96,15 @@
                             <form>
                                 <div class="top">
                                     <label>Recipient:&nbsp;</label>
-                                    <select>
-                                        <option>Friend #1</option>
+                                    <select id="addressee-selector">
+                                        <!-- <option>Friend #1</option>
                                         <option>Friend #2</option>
-                                        <option>Friend #3</option>
+                                        <option>Friend #3</option> -->
                                     </select>
                                 </div>
                                 <div class="bottom">
-                                    <input type="text">
-                                    <button>Send</button>
+                                    <input type="text" id="message">
+                                    <button onclick="sendMessage(getCurrentUsername())">Send</button>
                                 </div>
                             </form>
                         </div>
@@ -120,7 +120,8 @@
     </body>
     <script src="game.js"></script>
     <script src="saveData.js" onload="loadProgress(getSave(getCurrentUsername()))"></script>
-    <script src="script.js" onload="loadFriendData(getCurrentUsername())&&updateWidget()"></script>
+    <script src="script.js" onload="loadFriendData(getCurrentUsername())"></script>
+    <script>updateWidget();renderAddressBook();displayMessages(getCurrentUsername());</script>
     <script>
         setInterval(function() {
             autosave(getCurrentUsername(), getProgress());
