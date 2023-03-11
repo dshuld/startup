@@ -12,6 +12,7 @@ function registerUser(username, password) {
             users.push({ username, password });
             localStorage.setItem('users', JSON.stringify(users));
             login(username, password);
+            window.location.href = 'index.html';
             checkLogin();
             return true;
         }
