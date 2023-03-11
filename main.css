@@ -99,6 +99,12 @@ footer a {
     flex: 1;
 }
 
+#signed-in {
+    margin-top: 1em;
+    width: 100%;
+    font-size: small;
+}
+
 #sign-out {
     margin-top: 1em;
     width: 100%;

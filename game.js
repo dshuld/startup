@@ -21,6 +21,8 @@ const mountainBtnXp = 1000;
 const beachBtnXp = 2000;
 const cityBtnXp = 3000;
 
+const xpPerClick = 10;
+
 canvas.addEventListener('mousedown', function(event) {
     handleClick();
 });
@@ -33,60 +35,74 @@ function percentToPixels(per) {
     return (per/100)*canvas.width;
 }
 
-var locationsOwned = ['forest']
-var colorsOwned = ['black']
-const xpPerClick = 10;
-var xpPerSecond = 1;
-
-const pixelPal = {
+var pixelPal = {
+    locationsOwned: ['forest'],
+    colorsOwned: ['black'],
     xp: 0,
     color: 'black',
     level: 1,
-    location: 'forest',
-    gainXp: function(amount) {
-        this.xp += amount;
-    },
-    changeColor: function(color) {
-        this.color = color;
-    },
-    levelUp: function() {
-        this.level++;
-        xpPerSecond = this.level;
-    },
-    changeLocation: function(location) {
-        this.location = location;
-    }
+    location: 'forest'
 };
 
+function getProgress() {
+    return JSON.stringify(pixelPal);
+}
+
+function loadProgress(data) {
+    pixelPal = JSON.parse(data);
+}
+
 setInterval(function() {
-    pixelPal.gainXp(xpPerSecond);
+    pixelPal.xp += pixelPal.level;
     drawCanvas();
     checkButtons();
 }, 1000);
 
 function checkButtons() {
-    blueBtn.disabled = (colorsOwned.indexOf('blue') === -1) && (pixelPal.xp < blueBtnXp);
-    greenBtn.disabled = (colorsOwned.indexOf('green') === -1) && (pixelPal.xp < greenBtnXp);
-    orangeBtn.disabled = (colorsOwned.indexOf('orange') === -1) && (pixelPal.xp < orangeBtnXp);
-    redBtn.disabled = (colorsOwned.indexOf('red') === -1) && (pixelPal.xp < redBtnXp);
-    mountainBtn.disabled = (locationsOwned.indexOf('mountain') === -1) && (pixelPal.xp < mountainBtnXp);
-    beachBtn.disabled = (locationsOwned.indexOf('beach') === -1) && (pixelPal.xp < beachBtnXp);
-    cityBtn.disabled = (locationsOwned.indexOf('city') === -1) && (pixelPal.xp < cityBtnXp);
+    blueBtn.disabled = (pixelPal.colorsOwned.indexOf('blue') === -1) && (pixelPal.xp < blueBtnXp);
+    greenBtn.disabled = (pixelPal.colorsOwned.indexOf('green') === -1) && (pixelPal.xp < greenBtnXp);
+    orangeBtn.disabled = (pixelPal.colorsOwned.indexOf('orange') === -1) && (pixelPal.xp < orangeBtnXp);
+    redBtn.disabled = (pixelPal.colorsOwned.indexOf('red') === -1) && (pixelPal.xp < redBtnXp);
+    mountainBtn.disabled = (pixelPal.locationsOwned.indexOf('mountain') === -1) && (pixelPal.xp < mountainBtnXp);
+    beachBtn.disabled = (pixelPal.locationsOwned.indexOf('beach') === -1) && (pixelPal.xp < beachBtnXp);
+    cityBtn.disabled = (pixelPal.locationsOwned.indexOf('city') === -1) && (pixelPal.xp < cityBtnXp);
+    if(pixelPal.colorsOwned.indexOf('blue') > -1) {
+        blueBtn.textContent = 'Blue';
+    }
+    if(pixelPal.colorsOwned.indexOf('green') > -1) {
+        greenBtn.textContent = 'Green';
+    }
+    if(pixelPal.colorsOwned.indexOf('orange') > -1) {
+        orangeBtn.textContent = 'Orange';
+    }
+    if(pixelPal.colorsOwned.indexOf('red') > -1) {
+        redBtn.textContent = 'Red';
+    }
+
+    if(pixelPal.locationsOwned.indexOf('mountain') > -1) {
+        mountainBtn.textContent = 'Mountain';
+    }
+    if(pixelPal.locationsOwned.indexOf('beach') > -1) {
+        beachBtn.textContent = 'Beach';
+    }
+    if(pixelPal.locationsOwned.indexOf('city') > -1) {
+        cityBtn.textContent = 'City';
+    }
 }
 
 function clickBlack() {
-    pixelPal.changeColor('black');
+    pixelPal.color = 'black';
     drawCanvas();
 }
 
 function clickBlue() {
-    if(colorsOwned.indexOf('blue') > -1) {
-        pixelPal.changeColor('blue');
+    if(pixelPal.colorsOwned.indexOf('blue') > -1) {
+        pixelPal.color = 'blue';
     }
     else if (pixelPal.xp >= blueBtnXp) {
         pixelPal.xp -= blueBtnXp;
-        colorsOwned.push('blue');
-        pixelPal.changeColor('blue');
+        pixelPal.colorsOwned.push('blue');
+        pixelPal.color = 'blue';
         blueBtn.textContent = 'Blue';
         checkButtons();
     }
@@ -94,12 +110,12 @@ function clickBlue() {
 }
 
 function clickGreen() {
-    if (colorsOwned.indexOf('green') > -1) {
-        pixelPal.changeColor('green');
+    if (pixelPal.colorsOwned.indexOf('green') > -1) {
+        pixelPal.color = 'green';
     } else if (pixelPal.xp >= greenBtnXp) {
         pixelPal.xp -= greenBtnXp;
-        colorsOwned.push('green');
-        pixelPal.changeColor('green');
+        pixelPal.colorsOwned.push('green');
+        pixelPal.color = 'green';
         greenBtn.textContent = 'Green';
         checkButtons();
     }
@@ -107,12 +123,12 @@ function clickGreen() {
 }
   
 function clickOrange() {
-    if (colorsOwned.indexOf('orange') > -1) {
-        pixelPal.changeColor('orange');
+    if (pixelPal.colorsOwned.indexOf('orange') > -1) {
+        pixelPal.color = 'orange';
     } else if (pixelPal.xp >= orangeBtnXp) {
         pixelPal.xp -= orangeBtnXp;
-        colorsOwned.push('orange');
-        pixelPal.changeColor('orange');
+        pixelPal.colorsOwned.push('orange');
+        pixelPal.color = 'orange';
         orangeBtn.textContent = 'Orange';
         checkButtons();
     }
@@ -120,12 +136,12 @@ function clickOrange() {
 }
   
 function clickRed() {
-    if (colorsOwned.indexOf('red') > -1) {
-        pixelPal.changeColor('red');
+    if (pixelPal.colorsOwned.indexOf('red') > -1) {
+        pixelPal.color = 'red';
     } else if (pixelPal.xp >= redBtnXp) {
         pixelPal.xp -= redBtnXp;
-        colorsOwned.push('red');
-        pixelPal.changeColor('red');
+        pixelPal.colorsOwned.push('red');
+        pixelPal.color = 'red';
         redBtn.textContent = 'Red';
         checkButtons();
     }
@@ -133,55 +149,55 @@ function clickRed() {
 }
 
 function clickForest() {
-    pixelPal.changeLocation('forest');
+    pixelPal.location = 'forest';
     drawCanvas();
 }
 
 function clickMountain() {
-    if (locationsOwned.indexOf('mountain') > -1) {
-        pixelPal.changeLocation('mountain');
+    if (pixelPal.locationsOwned.indexOf('mountain') > -1) {
+        pixelPal.location = 'mountain';
     } else if (pixelPal.xp >= mountainBtnXp) {
         pixelPal.xp -= mountainBtnXp;
-        locationsOwned.push('mountain');
-        pixelPal.changeLocation('mountain');
+        pixelPal.locationsOwned.push('mountain');
+        pixelPal.location = 'mountain';
         mountainBtn.textContent = 'Mountain';
         checkButtons();
-        pixelPal.levelUp();
+        pixelPal.level++;
     }
     drawCanvas();
 }
 
 function clickBeach() {
-    if (locationsOwned.indexOf('beach') > -1) {
-        pixelPal.changeLocation('beach');
+    if (pixelPal.locationsOwned.indexOf('beach') > -1) {
+        pixelPal.location = 'beach';
     } else if (pixelPal.xp >= beachBtnXp) {
         pixelPal.xp -= beachBtnXp;
-        locationsOwned.push('beach');
-        pixelPal.changeLocation('beach');
+        pixelPal.locationsOwned.push('beach');
+        pixelPal.location = 'beach';
         beachBtn.textContent = 'Beach';
         checkButtons();
-        pixelPal.levelUp();
+        pixelPal.level++;
     }
     drawCanvas();
 }
 
 function clickCity() {
-    if (locationsOwned.indexOf('city') > -1) {
-        pixelPal.changeLocation('city');
+    if (pixelPal.locationsOwned.indexOf('city') > -1) {
+        pixelPal.location = 'city';
     } else if (pixelPal.xp >= cityBtnXp) {
         pixelPal.xp -= cityBtnXp;
-        locationsOwned.push('city');
-        pixelPal.changeLocation('city');
+        pixelPal.locationsOwned.push('city');
+        pixelPal.location = 'city';
         cityBtn.textContent = 'City';
         checkButtons();
-        pixelPal.levelUp();
+        pixelPal.level++;
     }
     drawCanvas();
 }
   
 
 function handleClick() {
-    pixelPal.gainXp(xpPerClick);
+    pixelPal.xp += xpPerClick;
     drawCanvas();
     checkButtons();
 }
@@ -190,13 +206,13 @@ function drawCanvas() {
     //set background
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
     var bg = new Image();
-    bg.src = pixelPal.location + '.png';
+    bg.src = 'res/' + pixelPal.location + '.png';
     ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
     // draw the pixel pal
     ctx.fillStyle = pixelPal.color;
     var img = new Image();
-    img.src = 'small_dog_' + pixelPal.color + '.png';
+    img.src = 'res/' + 'small_dog_' + pixelPal.color + '.png';
     ctx.drawImage(img, percentToPixels(40), percentToPixels(40), percentToPixels(20), percentToPixels(20));
     
     // draw the xp and level

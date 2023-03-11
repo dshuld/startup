@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!----------------------------------->
+
+        <script src="users.js" onload="checkLogin()"></script>
     </head>
 
     <body class="bg-dark text-light">
@@ -35,37 +37,38 @@
                         <div class="color-controls sub-control">
                             <div>Colors</div>
                             <button id="black-button" onclick="clickBlack()">Black</button>
-                            <button disabled id="blue-button" onclick="clickBlue()">100xp</button>
-                            <button disabled id="green-button" onclick="clickGreen()">500xp</button>
-                            <button disabled id="orange-button" onclick="clickOrange()">1000xp</button>
-                            <button disabled id="red-button" onclick="clickRed()">2000xp</button>
+                            <button disabled id="blue-button" onclick="clickBlue()">100 XP</button>
+                            <button disabled id="green-button" onclick="clickGreen()">500 XP</button>
+                            <button disabled id="orange-button" onclick="clickOrange()">1000 XP</button>
+                            <button disabled id="red-button" onclick="clickRed()">2000 XP</button>
                         </div>
                         <div class="location-controls sub-control">
                             <div>Location</div>
                             <button id="forest-button" onclick="clickForest()">Forest</button>
-                            <button disabled id="mountain-button" onclick="clickMountain()">1000xp</button>
-                            <button disabled id="beach-button" onclick="clickBeach()">2000xp</button>
-                            <button disabled id="city-button" onclick="clickCity()">3000xp</button>
+                            <button disabled id="mountain-button" onclick="clickMountain()">1000 XP</button>
+                            <button disabled id="beach-button" onclick="clickBeach()">2000 XP</button>
+                            <button disabled id="city-button" onclick="clickCity()">3000 XP</button>
                         </div>
                     </div>
                 </div>
 
                 <div id="right-column" class="col-md-3 my-1 column">
                     <div class="sign-out-and-friends">
+                        <div id="signed-in">Signed in as: <span id="username-placeholder">placeholder</span><script>displayCurrentUsername()</script></div>
                         <div id="sign-out">
-                            <button class="btn btn-dark">Logout</button>
+                            <button class="btn btn-dark" onclick="logout()">Logout</button>
                         </div>
                         <div class="friends-list text-dark">
                             <div class="friend">
-                                <img src="friend.png"/>
+                                <img src="res/friend.png"/>
                                 <p>Friend #1</p>
                             </div>
                             <div class="friend">
-                                <img src="friend.png"/>
+                                <img src="res/friend.png"/>
                                 <p>Friend #2</p>
                             </div>
                             <div class="friend">
-                                <img src="friend.png"/>
+                                <img src="res/friend.png"/>
                                 <p>Friend #3</p>
                             </div>
                         </div>
@@ -105,4 +108,11 @@
         </footer>
     </body>
     <script src="game.js"></script>
+    <script src="saveData.js" onload="loadProgress(getSave(getCurrentUsername()))"></script>
+    <script>
+        setInterval(function() {
+            console.log('save');
+            autosave(getCurrentUsername(), getProgress());
+        }, 1000);
+    </script>
 </html>
