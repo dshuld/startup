@@ -8,11 +8,16 @@ function registerUser(username, password) {
     if(document.getElementById('passwordInput').value === 
        document.getElementById('confirmPasswordInput').value) {
         const users = JSON.parse(localStorage.getItem('users'));
-        users.push({ username, password });
-        localStorage.setItem('users', JSON.stringify(users));
-        login(username, password);
-        checkLogin();
-        return true;
+        if(!users.find(u => u.username === username)) {
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            login(username, password);
+            checkLogin();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     else {
         return false;

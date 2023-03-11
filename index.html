@@ -23,10 +23,16 @@
         <main class="container-fluid">
             <div class="row">
                 <div id="left-column" class="col-md-3 my-1 column">
+                    <!-- <div class="widget"></div>
                     <div class="widget"></div>
+                    <div class="widget"></div> -->
+                    <!-- <button class="btn add-widget">+ Add Widget</button> -->
+                    <select id="widget-select" onchange="updateWidget()">
+                        <option>Weather</option>
+                        <option>News</option>
+                        <option>Stocks</option>
+                    </select>
                     <div class="widget"></div>
-                    <div class="widget"></div>
-                    <button class="btn add-widget">+ Add Widget</button>
                 </div>
 
                 <div id="main-column" class="col-md-5 mx-2 my-1 column">
@@ -59,7 +65,7 @@
                             <button class="btn btn-dark" onclick="logout()">Logout</button>
                         </div>
                         <div class="friends-list text-dark">
-                            <div class="friend">
+                            <!-- <div class="friend">
                                 <img src="res/friend.png"/>
                                 <p>Friend #1</p>
                             </div>
@@ -70,15 +76,20 @@
                             <div class="friend">
                                 <img src="res/friend.png"/>
                                 <p>Friend #3</p>
-                            </div>
+                            </div> -->
                         </div>
-                        <button class="btn add-friend">+ Add Friend</button>
+                        <button class="btn add-friend" onclick="showPopup()">+ Add Friend</button>
+                        <div id="popup-box" style="display: none;">
+                            <label for="username-input">Enter username:</label>
+                            <input type="text" id="username-input">
+                            <button onclick="addFriend(getCurrentUsername())">Add Friend</button>
+                        </div>
                     </div>
                     <div class="chatbox">
                         <div class="messages">
                             <div class="message-items">
-                                <p>Message</p>
-                                <p>Message</p>
+                                <!-- <p>Message</p>
+                                <p>Message</p> -->
                             </div>
                         </div>
                         <div class="composer">
@@ -109,9 +120,9 @@
     </body>
     <script src="game.js"></script>
     <script src="saveData.js" onload="loadProgress(getSave(getCurrentUsername()))"></script>
+    <script src="script.js" onload="loadFriendData(getCurrentUsername())&&updateWidget()"></script>
     <script>
         setInterval(function() {
-            console.log('save');
             autosave(getCurrentUsername(), getProgress());
         }, 1000);
     </script>
