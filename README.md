@@ -36,3 +36,5 @@ Positioning was probably the most difficult part of the CSS, so it would be wort
 It was very cool to build my site based on my design from scratch, it helped me learn a lot more about the importance of planning out a webstie design, becasue it allows for a much smarter layout and structure of the HTML document to make the styling more simple.
 ## Simon JS
 It was cool to add functionality to the site, I learned more about how to use local storage to keep track of scores and username information.
+## Startup JS
+It was much more intensive than I expected, but I learned a lot about using localStorage
