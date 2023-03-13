@@ -38,3 +38,5 @@ It was very cool to build my site based on my design from scratch, it helped me 
 It was cool to add functionality to the site, I learned more about how to use local storage to keep track of scores and username information.
 ## Startup JS
 It was much more intensive than I expected, but I learned a lot about using localStorage
+## Fetch
+API's are useful for getting external data.
