@@ -40,3 +40,5 @@ It was cool to add functionality to the site, I learned more about how to use lo
 It was much more intensive than I expected, but I learned a lot about using localStorage
 ## Fetch
 API's are useful for getting external data.
+## Simon DB
+Having a server hosted separately allows us to store and retrieve data independent from the current browser or session.
