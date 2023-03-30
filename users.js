@@ -12,15 +12,8 @@ function registerUser(username, password) {
             users.push({ username, password });
             localStorage.setItem('users', JSON.stringify(users));
             login(username, password);
-            window.location.href = 'index.html';
-            return true;
+            window.location.href = './index.html';
         }
-        else {
-            return false;
-        }
-    }
-    else {
-        return false;
     }
 }
 
@@ -46,7 +39,7 @@ function login(username, password) {
     const user = users.find(u => u.username === username && u.password === password);
     if (user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        window.location.href = 'index.html';
+        window.location.href = './index.html';
         return true;
     } else {
         return false;
@@ -62,13 +55,13 @@ function logout() {
 // Redirect to login page if user is not logged in
 function checkLogin() {
     if (!isLoggedIn()) {
-        if (window.location.href.indexOf('login.html') === -1) {
-            window.location.href = 'login.html';
+        if (window.location.href.indexOf('index.html') !== -1) {
+            window.location.href = './login.html';
         }
     }
     else {
         if (window.location.href.indexOf('index.html') === -1) {
-            window.location.href = 'index.html';
+            window.location.href = './index.html';
         }
     }
 }

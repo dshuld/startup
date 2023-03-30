@@ -207,17 +207,20 @@ function drawCanvas() {
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
     var bg = new Image();
     bg.src = './res/' + pixelPal.location + '.png';
-    ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+    bg.onload = function() {
+        ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
 
+        // draw the xp and level
+        ctx.fillStyle = 'black';
+        ctx.font = '10px Arial';
+        ctx.fillText('XP: ' + pixelPal.xp, 5, 15);
+        ctx.fillText('Level: ' + pixelPal.level, 5, 30);
+    };
     // draw the pixel pal
     ctx.fillStyle = pixelPal.color;
     var img = new Image();
     img.src = './res/' + 'small_dog_' + pixelPal.color + '.png';
-    ctx.drawImage(img, percentToPixels(40), percentToPixels(40), percentToPixels(20), percentToPixels(20));
-    
-    // draw the xp and level
-    ctx.fillStyle = 'black';
-    ctx.font = '10px Arial';
-    ctx.fillText('XP: ' + pixelPal.xp, 5, 15);
-    ctx.fillText('Level: ' + pixelPal.level, 5, 30);
+    img.onload = function() {
+        ctx.drawImage(img, percentToPixels(40), percentToPixels(40), percentToPixels(20), percentToPixels(20));
+    };
 }

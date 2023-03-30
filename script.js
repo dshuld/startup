@@ -51,7 +51,7 @@ function renderFriends() {
 }
 
 function loadFriendData(username) {
-    const userFriends = JSON.parse(localStorage.getItem('friends'));
+    userFriends = JSON.parse(localStorage.getItem('friends'));
     const friends = userFriends.find(u => u.username === username);
     if (friends) {
         friendsList = friends.friendsList;
