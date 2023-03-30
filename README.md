@@ -42,5 +42,7 @@ It was much more intensive than I expected, but I learned a lot about using loca
 API's are useful for getting external data.
 ## Simon DB
 Having a server hosted separately allows us to store and retrieve data independent from the current browser or session.
+## Simon Login
+We can now authenticate users.
 ## Simon Websocket
 Using websocket allows us to have live interaction between currently connected users.
