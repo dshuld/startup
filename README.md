@@ -46,3 +46,5 @@ Having a server hosted separately allows us to store and retrieve data independe
 We can now authenticate users.
 ## Simon Websocket
 Using websocket allows us to have live interaction between currently connected users.
+## Simon React
+Using react for simon lets us break it into components
